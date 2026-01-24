@@ -73,3 +73,24 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+export const getProfile = async (req, res) => {
+  res.json(req.user);
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    if (name) {
+      req.user.name = name;
+      await req.user.save();
+    }
+
+    res.json({
+      message: "Profile updated",
+      user: req.user
+    });
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
+};
