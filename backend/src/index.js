@@ -13,7 +13,7 @@ const app = express();
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://primetrade-pi.vercel.app/"
+    "https://primetrade-pi.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
