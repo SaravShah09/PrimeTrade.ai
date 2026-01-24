@@ -10,9 +10,6 @@ connectDB();
 
 const app = express();
 
-const app = express();
-
-/* CORS (keep your working version here) */
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
