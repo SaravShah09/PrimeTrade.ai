@@ -10,16 +10,13 @@ connectDB();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "https://primetrade-roan.vercel.app"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
-app.options("*", cors());
+const corsOptions = {
+  origin: "https://primetrade-roan.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
